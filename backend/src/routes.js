@@ -11,9 +11,14 @@ const connection = require('./database/connection');
 
 const routes = express.Router()
 
-routes.post('/sessions', sessionController.create);
+routes.post('/sessions', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        id: Joi.string().required(),
+    })
+}),sessionController.create);
 
 routes.get('/ongs',ongController.index );
+
 routes.post('/ongs' , celebrate({
     [Segments.BODY]: Joi.object().keys({
         name: Joi.string().required(),
