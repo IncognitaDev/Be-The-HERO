@@ -5,9 +5,6 @@ const ongController = require('./controllers/ongController')
 const incidentsController = require('./controllers/incidentsController') 
 const profileController = require('./controllers/profileController') 
 const sessionController = require('./controllers/sessionContrller')
-const connection = require('./database/connection');
-
-
 
 const routes = express.Router()
 
